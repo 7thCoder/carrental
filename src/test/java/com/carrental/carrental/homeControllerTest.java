@@ -22,6 +22,6 @@ public class homeControllerTest {
  
  @Test
  public void testHomePage() throws Exception {
- mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("home"));
+ mockMvc.perform(get("/addcar")).andExpect(status().isOk()).andExpect(view().name("addcar"));
  }
 }

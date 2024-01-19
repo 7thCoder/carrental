@@ -1,14 +1,28 @@
 package com.carrental.carrental.model;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import com.carrental.carrental.model.colors;
+import lombok.NoArgsConstructor;
 
+
+@Entity
+@Table(name="car")
+@AllArgsConstructor
+@NoArgsConstructor (access = AccessLevel.PUBLIC, force = true)
 @Data
 public class car {
 
-    private final String Id;
-    private final String Brand;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long Id;
+    private final String brand;
     private final String year;
     private final String price;
-    private final colors color;    
+    // private final colors color;    
 }

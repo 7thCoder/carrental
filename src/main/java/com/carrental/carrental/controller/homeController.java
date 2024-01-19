@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+
 @Configuration
 @RequestMapping("/")
 public class homeController implements WebMvcConfigurer {
@@ -12,7 +13,9 @@ public class homeController implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/").setViewName("home");
-        registry.addViewController("/login");
+        registry.addViewController("/addcar").setViewName("addcar");
 
     }
+
+   
 }
