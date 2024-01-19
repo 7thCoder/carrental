@@ -1,6 +1,7 @@
 package com.carrental.carrental.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +15,7 @@ import com.carrental.carrental.model.car;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Configuration
 @Controller
 @RequestMapping("/addcar")
 public class carController {
@@ -23,16 +25,16 @@ public class carController {
 
     @GetMapping
     public ModelAndView addCarForm(){
-        ModelAndView mav = new ModelAndView();
-        car cr  = new car();
-        mav.addObject("car", cr);
+        ModelAndView mav = new ModelAndView("addcar");
+        mav.addObject("car", new car());
         return mav;
     }
 
     @PostMapping
-    public String saveCar(@ModelAttribute car newCar){
-        carRepo.save(newCar);
-        return "redirect: /home";
+    public String saveCar(@ModelAttribute car cr){
+        log.info("car saved: {}",cr);
+        carRepo.save(cr);
+        return "redirect:/home";
     }
     
 }

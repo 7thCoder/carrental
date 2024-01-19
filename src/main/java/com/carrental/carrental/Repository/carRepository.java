@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.carrental.carrental.model.car;
 
 @Repository
-@AutoConfiguration
-public interface carRepository extends CrudRepository<car, Long>{
+public interface carRepository extends CrudRepository<car, Long >{
     
 }
