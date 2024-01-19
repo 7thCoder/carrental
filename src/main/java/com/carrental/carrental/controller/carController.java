@@ -1,34 +1,38 @@
-// package com.carrental.carrental.controller;
+package com.carrental.carrental.controller;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.stereotype.Controller;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.ModelAttribute;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.servlet.ModelAndView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-// import com.carrental.carrental.Repository.carRepository;
-// import com.carrental.carrental.model.car;
+import com.carrental.carrental.Repository.carRepository;
+import com.carrental.carrental.model.car;
 
-// import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 
-// @Slf4j
-// @Controller
-// @RequestMapping("/addcar")
-// public class carController {
-//     @Autowired
-//     private carRepository carRepo;
+@Slf4j
+@Controller
+@RequestMapping("/addcar")
+public class carController {
+    @Autowired
+    private carRepository carRepo;
 
 
-//     @GetMapping
-//     public String addCarForm(){
-//         return "addcar";
-//     }
+    @GetMapping
+    public ModelAndView addCarForm(){
+        ModelAndView mav = new ModelAndView();
+        car cr  = new car();
+        mav.addObject("car", cr);
+        return mav;
+    }
 
-//     @PostMapping
-//     public void saveCar(@ModelAttribute car newCar){
-//         carRepo.save(newCar);
-//     }
+    @PostMapping
+    public String saveCar(@ModelAttribute car newCar){
+        carRepo.save(newCar);
+        return "redirect: /";
+    }
     
-// }
+}

@@ -12,8 +12,14 @@
         <input type="text" th:field = "*{year}" placeholder="year...">
         <input type="text" th:field ="*{price}" placeholder="price....">
         <button type="submit">Save</button>
-        <input type="hidden" th:field="{id}">
+        <input type="hidden" th:field="*{id}">
     </form>
+    <!-- <form action="" method="post">
+        <input type="text"  placeholder="Brand name...">
+        <input type="text"  placeholder="year...">
+        <input type="text"  placeholder="price....">
+        <button type="submit">Save</button>
+    </form> -->
     
 </body>
 </html>
