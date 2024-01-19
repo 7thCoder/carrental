@@ -9,7 +9,7 @@
     <h1>Add car blud</h1>
     <form th:action="@{/addcar}" th:object="${car}" method="post">
         <input type="text" th:field="*{brand}" placeholder="Brand name...">
-        <input type="text" th:field = "*{year}" placeholder="year...">
+        <input type="text" th:field = "*{yer}" placeholder="year...">
         <input type="text" th:field ="*{price}" placeholder="price....">
         <button type="submit">Save</button>
         <input type="hidden" th:field="*{id}">

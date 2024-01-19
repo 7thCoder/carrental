@@ -22,7 +22,7 @@ public class car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
     private final String brand;
-    private final String year;
+    private final String yer;
     private final String price;
     // private final colors color;    
 }

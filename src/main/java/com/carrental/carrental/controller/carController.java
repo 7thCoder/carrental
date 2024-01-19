@@ -32,7 +32,7 @@ public class carController {
     @PostMapping
     public String saveCar(@ModelAttribute car newCar){
         carRepo.save(newCar);
-        return "redirect: /";
+        return "redirect: /home";
     }
     
 }
