@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add car
+
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Add car blud</h1>
+    <div class="container">
+        <h1>Add car</h1>
+        <a th:href="@{/home}" class="btn btn-primary mb-2">Home</a>
+        <form th:action="@{/addcar}" th:object="${car}" th:method="POST">
+            <input type="text" th:field="*{brand}" placeholder="Brand name..." class="form-control col-4 mb-4">
+            <input type="text" th:field = "*{yer}" placeholder="year..." class="form-control col-4 mb-4">
+            <input type="text" th:field ="*{price}" placeholder="price...." class="form-control col-4 mb-4">
+            <button type="submit">Save</button>
+            <input type="hidden" th:field="*{id}">
+        </form>
 
-    <form th:action="@{/addcar}" th:object="${car}" th:method="POST">
-        <input type="text" th:field="*{brand}" placeholder="Brand name...">
-        <input type="text" th:field = "*{yer}" placeholder="year...">
-        <input type="text" th:field ="*{price}" placeholder="price....">
-        <button type="submit">Save</button>
-        <input type="hidden" th:field="*{id}">
-    </form>
-    <!-- <form th:action="@{/addcar}" th:object="${car}" method="post">
-        <input type="text" th:field="*{brand}" placeholder="Brand names...">
-        <input type="text"  th:field="*{yer}"" placeholder="year...">
-        <input type="text" th:field="*{price}"" placeholder="price....">
-        <button type="submit">Save</button>
-        <input type="hidden" th:field="*{Id}"">
-    </form> -->
+    </div>
+   
     
 </body>
 </html>

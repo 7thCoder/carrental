@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <h1>
-        Welcome to car rental system
-    </h1>
+    <div class="container">
+        <h1>
+            Welcome to car rental system
+        </h1>
+        <a th:href="@{/addcar}" class="btn btn-primary mb-2">Add car</a>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Year</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                <tr th:each="car:${cars}">
+                    <td th:text="${car.id}"></td>
+                    <td th:text="${car.brand}"></td>
+                    <td th:text="${car.yer}"></td>
+                    <td th:text="${car.price}"></td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
 </body>
 </html>

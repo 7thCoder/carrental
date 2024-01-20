@@ -1,19 +1,26 @@
 package com.carrental.carrental.controller;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.carrental.carrental.Repository.carRepository;
+import com.carrental.carrental.model.car;
 
 
-@Configuration
-@RequestMapping("/home")
-public class homeController implements WebMvcConfigurer {
+@Controller
+public class homeController{
+    @Autowired
+    private carRepository carRepo;
    
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry){
-        registry.addViewController("/home").setViewName("home");
-        // registry.addViewController("/addcar").setViewName("addcar");
+    @GetMapping({"/","/home"})
+    public ModelAndView showCars(){
+        ModelAndView mav = new ModelAndView("home");
+        Iterable<car> list = carRepo.findAll();
+        mav.addObject("cars", list);
+        return mav;
 
     }
 
