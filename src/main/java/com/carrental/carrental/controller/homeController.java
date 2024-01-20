@@ -21,7 +21,11 @@ public class homeController{
         Iterable<car> list = carRepo.findAll();
         mav.addObject("cars", list);
         return mav;
+    }
 
+    @GetMapping("/login")
+    public String logiForm(){
+        return "login";
     }
 
    
