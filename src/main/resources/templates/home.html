@@ -27,6 +27,7 @@
                     <td th:text="${car.brand}"></td>
                     <td th:text="${car.yer}"></td>
                     <td th:text="${car.price}"></td>
+                    <a th:href="@{/book(carId=${car.id})}" class="btn btn-info">Book car</a>
                 </tr>
             </tbody>
             
