@@ -20,6 +20,7 @@
                 <th>Brand</th>
                 <th>Year</th>
                 <th>Price</th>
+                <th colspan="2">Actions</th>
             </thead>
             <tbody>
                 <tr th:each="car:${cars}">
@@ -27,7 +28,9 @@
                     <td th:text="${car.brand}"></td>
                     <td th:text="${car.yer}"></td>
                     <td th:text="${car.price}"></td>
-                    <a th:href="@{/book(carId=${car.id})}" class="btn btn-info">Book car</a>
+                    <td><a th:href="@{/book(carId=${car.id})}" class="btn btn-info">Book car</a></td>
+                    <td><a th:href="@{/book(carId=${car.id})}" class="btn btn-danger">Book car</a></td>
+                    
                 </tr>
             </tbody>
             

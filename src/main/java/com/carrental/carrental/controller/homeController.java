@@ -23,6 +23,14 @@ public class homeController{
         return mav;
     }
 
+    @GetMapping({"/cars"})
+    public ModelAndView customerView(){
+        ModelAndView mav = new ModelAndView("cars");
+        Iterable<car> list = carRepo.findAll();
+        mav.addObject("cars", list);
+        return mav;
+    }
+
     @GetMapping("/login")
     public String logiForm(){
         return "login";

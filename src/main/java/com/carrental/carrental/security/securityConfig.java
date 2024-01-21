@@ -36,7 +36,7 @@ public class securityConfig {
 		.authorizeHttpRequests((authorize) -> authorize
 			.requestMatchers("/addcar").hasRole("USER")
 			.requestMatchers("/","/**").permitAll()
-            .requestMatchers("/h2-console/**").permitAll()
+
 		)
        .formLogin(formLogin ->formLogin.loginPage("/login").permitAll()
         .defaultSuccessUrl("/addcar")
