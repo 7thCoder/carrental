@@ -2,7 +2,7 @@ package com.carrental.carrental.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.web.exchanges.HttpExchange.Principal;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,9 +52,9 @@ public class homeController{
     }
 
     @GetMapping("/book")
-    public String processBooking(@RequestParam Long carId, Principal principal){
+    public String processBooking(@RequestParam Long carId, Authentication authentication){
         car car = carRepo.findById(carId).get();
-        user user = userRepo.findByUsername(principal.getName());
+        user user = (user) authentication.getPrincipal();
         carBooking carBooking = new carBooking();
         carBooking.setCarInfo(car);
         carBooking.setUser(user);
