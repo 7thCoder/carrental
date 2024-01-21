@@ -56,10 +56,16 @@ public class homeController{
         car car = carRepo.findById(carId).get();
         user user = (user) authentication.getPrincipal();
         carBooking carBooking = new carBooking();
-        carBooking.setCarInfo(car);
+        carBooking.setCar(car);
         carBooking.setUser(user);
+        carBooking.setUsername(user.getUsername());
+        carBooking.setAdress(user.getAdress());
+        carBooking.setBrand(car.getBrand());
+        carBooking.setYear(car.getYer());
+        carBooking.setPrice(car.getPrice());
+
         log.info("Booking saved: {}",carBooking);
         bookRepo.save(carBooking);
-        return "home";
+        return "redirect:/cars";
     }
 }

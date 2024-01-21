@@ -28,5 +28,21 @@ public class carBooking implements Serializable {
     private user user;
 
     @ManyToOne
-    private car carInfo;
+    private car car;
+
+    private String username;
+    private String adress;
+    private String brand;
+    private String year;
+    private String price;
+
+    
+    // public carBooking(String username, String adress, String brand, String yer, String price){
+    //     this.username = user.getUsername();
+    //     this.adress = user.getAdress();
+    //     this.brand = car.getBrand();
+    //     this.yer = car.getYer();
+    //     this.price = car.getPrice();
+    // }
+
 }
