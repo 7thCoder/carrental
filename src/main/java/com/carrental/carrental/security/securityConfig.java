@@ -39,7 +39,7 @@ public class securityConfig {
 
 		)
        .formLogin(formLogin ->formLogin.loginPage("/login").permitAll()
-        .defaultSuccessUrl("/addcar")
+        .defaultSuccessUrl("/cars")
        )
         .build();
     }
