@@ -68,4 +68,19 @@ public class homeController{
         bookRepo.save(carBooking);
         return "redirect:/cars";
     }
+
+    @GetMapping("/deleteCar")
+    public String deleteCar(@RequestParam Long carId) {
+        carRepo.deleteById(carId);
+        return "redirect:/home";
+    }
+
+    @GetMapping("/updateCar")
+    public ModelAndView updateCarForm(@RequestParam Long carId){
+        ModelAndView mav = new ModelAndView("addcar");
+        car cr = carRepo.findById(carId).get();
+        mav.addObject("car", cr);
+        return mav;
+    }
+    
 }

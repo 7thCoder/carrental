@@ -28,8 +28,8 @@
                     <td th:text="${car.brand}"></td>
                     <td th:text="${car.yer}"></td>
                     <td th:text="${car.price}"></td>
-                    <td><a th:href="@{/book(carId=${car.id})}" class="btn btn-info">Book car</a></td>
-                    <td><a th:href="@{/book(carId=${car.id})}" class="btn btn-danger">Book car</a></td>
+                    <td><a th:href="@{/updateCar(carId=${car.id})}" class="btn btn-info">Modify</a></td>
+                    <td><a th:href="@{/deleteCar(carId=${car.id})}" class="btn btn-danger">delete</a></td>
                     
                 </tr>
             </tbody>
